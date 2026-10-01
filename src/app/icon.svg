@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <mask id="notch">
+      <rect width="300" height="300" rx="72" fill="#fff"/>
+      <circle cx="0" cy="150" r="25.5" fill="#000"/>
+      <circle cx="300" cy="150" r="25.5" fill="#000"/>
+    </mask>
+  </defs>
+  <rect width="300" height="300" rx="72" fill="#C8FF2E" mask="url(#notch)"/>
+  <path d="M176 108 C166 94 150 88 132 88 C106 88 88 102 88 122 C88 144 108 150 134 156 C162 162 182 170 182 194 C182 216 162 228 136 228 C112 228 92 218 84 200" fill="none" stroke="#09090B" stroke-width="34" stroke-linecap="round"/>
+  <circle cx="218" cy="210" r="20" fill="#09090B"/>
+</svg>
