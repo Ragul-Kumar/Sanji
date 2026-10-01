@@ -8,6 +8,7 @@ const COLS = [
       { href: "/#how", label: "How it works" },
       { href: "/#rewards", label: "Rewards" },
       { href: "/leaderboard", label: "Leaderboard" },
+      { href: "/#badges", label: "Founding badges" },
       { href: "/#faq", label: "FAQ" },
     ],
   },

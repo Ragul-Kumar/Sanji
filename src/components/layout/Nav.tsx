@@ -11,6 +11,7 @@ const LINKS = [
   { href: "/#how", label: "How it works" },
   { href: "/#rewards", label: "Rewards" },
   { href: "/leaderboard", label: "Leaderboard" },
+  { href: "/#badges", label: "Badges" },
   { href: "/#faq", label: "FAQ" },
 ];
 

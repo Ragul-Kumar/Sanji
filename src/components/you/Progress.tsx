@@ -1,5 +1,6 @@
 import { cn, formatNumber } from "@/lib/cn";
-import { PASSES, SPOTS_PER_INVITE } from "@/lib/site";
+import { BADGES, PASSES, SPOTS_PER_INVITE, badgeFor } from "@/lib/site";
+import { BadgeSeal } from "../ui/BadgeSeal";
 import { LeaderRow } from "../ui/LeaderRow";
 import { NEIGHBOURS } from "@/lib/sample-data";
 import { Accent, Eyebrow, Illustrative } from "../ui/bits";
@@ -58,6 +59,42 @@ export function PassLadder({ invites, pending, position, className }: { invites:
           );
         })}
       </ul>
+    </section>
+  );
+}
+
+export function BadgeStatus({ position }: { position: number }) {
+  const current = badgeFor(position);
+  const i = BADGES.findIndex((b) => b.id === current.id);
+  const next = i > 0 ? BADGES[i - 1] : null;
+  const invitesNeeded = next ? Math.ceil((position - next.maxRank) / SPOTS_PER_INVITE) : 0;
+  return (
+    <section
+      className="relative flex flex-col items-center gap-6 overflow-hidden rounded-[32px] border border-line bg-surface p-6 text-center md:flex-row md:gap-10 md:p-10 md:text-left"
+      aria-labelledby="badge-title"
+    >
+      <span aria-hidden className="glow -top-20 -left-20 size-[320px] bg-gold/15" />
+      <BadgeSeal badge={current} size={150} className="relative" />
+      <div className="relative flex-1">
+        <p className="eyebrow text-gold">Your founding badge · today</p>
+        <h2 id="badge-title" className="mt-2 font-display text-[32px] leading-tight font-bold tracking-tight md:text-[40px]">
+          {current.name}
+        </h2>
+        <p className="mt-2 max-w-[520px] text-base leading-relaxed text-muted">
+          {next
+            ? `Bring ${invitesNeeded} friend${invitesNeeded > 1 ? "s" : ""} to reach ${next.name} (${next.req.toLowerCase()}). Your badge locks at your final spot when the beta opens.`
+            : "You hold the rarest badge there is. Hold your spot until the beta opens and it's yours forever."}
+        </p>
+      </div>
+      {next && (
+        <div className="relative flex items-center gap-3 rounded-full border border-line bg-ink py-2 pr-5 pl-2 opacity-80">
+          <BadgeSeal badge={next} size={52} />
+          <span className="text-left">
+            <span className="block font-mono text-[10px] tracking-[0.12em] text-muted uppercase">Next</span>
+            <span className="block font-semibold">{next.name}</span>
+          </span>
+        </div>
+      )}
     </section>
   );
 }

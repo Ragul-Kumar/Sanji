@@ -4,6 +4,7 @@ import { Nav } from "@/components/layout/Nav";
 import { CityChapters, CountdownBand, FirstWorksWall, LineGoals } from "@/components/landing/Addons";
 import { Doors } from "@/components/landing/Doors";
 import { FAQ } from "@/components/landing/FAQ";
+import { FoundingBadges } from "@/components/landing/FoundingBadges";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Hero } from "@/components/landing/Hero";
 import { HowItWorks } from "@/components/landing/HowItWorks";
@@ -27,6 +28,7 @@ export default function Home() {
         <Rewards />
         {FEATURES.firstWorksWall && <FirstWorksWall />}
         <LeaderboardPreview />
+        <FoundingBadges />
         {FEATURES.lineGoals && <LineGoals />}
         <Doors />
         {FEATURES.cityChapters && <CityChapters />}

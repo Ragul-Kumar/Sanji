@@ -8,7 +8,7 @@ import { Confetti } from "../fx/Confetti";
 import { ButtonLink } from "../ui/Button";
 import { Glow } from "../ui/bits";
 import { CopyButton } from "../ui/CopyButton";
-import { ClimbCalc, Nearby, PassLadder, passStatus } from "./Progress";
+import { BadgeStatus, ClimbCalc, Nearby, PassLadder, passStatus } from "./Progress";
 import { PassUnlocked } from "./PassUnlocked";
 import { ShareKit } from "./ShareKit";
 import { useMe } from "./useMe";
@@ -118,8 +118,9 @@ export function YouDashboard() {
         <ShareKit code={me.code} position={me.position} />
         <PassLadder invites={me.invites} pending={me.pendingInvites} position={me.position} />
       </div>
-      <div className="container-x mt-5 pb-20 md:pb-[120px]">
+      <div className="container-x mt-5 grid gap-5 pb-20 md:pb-[120px]">
         <ClimbCalc position={me.position} />
+        <BadgeStatus position={me.position} />
       </div>
 
       <Nearby position={me.position} craft={roleLabel} />

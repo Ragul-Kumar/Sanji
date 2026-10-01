@@ -9,6 +9,10 @@ export const FAQS = [
     q: "How does my spot move?",
     a: `Every friend who joins through your link moves you ${SPOTS_PER_INVITE} spots up. An invite counts once they confirm their email.`,
   },
+  {
+    q: "What are Founding Badges?",
+    a: "Our thank-you to everyone who joins before launch. Your badge is set by your final spot on the board: Day One for everyone, then First Thousand, Founding Artist and Founding Ten. They can't be bought, and nobody can earn them after the beta opens.",
+  },
   { q: "Do I need a portfolio to join?", a: "No. Your email and your craft hold your spot. You build your profile when your door opens." },
   { q: "Who can join?", a: "Every kind of artist at every level, plus people who love art or hire it. No gatekeeping." },
   { q: "Who's behind Sanji?", a: `${SITE.company}, a small team in ${SITE.city} building the place we wanted as artists.` },

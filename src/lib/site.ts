@@ -50,6 +50,64 @@ export const PASSES = [
   },
 ] as const;
 
+/**
+ * Founding Badges: honorary, earned only during preregistration, set by final
+ * leaderboard rank, closed forever when the beta opens. Ordered rarest first.
+ */
+export const BADGES = [
+  {
+    id: "founding-ten",
+    mark: "10",
+    name: "Founding Ten",
+    maxRank: 10,
+    req: "Ranks 10 → 1",
+    minted: "10 ever",
+    body: "The ten who built the line. Holographic, numbered, forever.",
+    accent: "lime",
+    rim: "conic-gradient(from 200deg, #C8FF2E, #6FD3FF, #FF9EE6, #FFD35C, #C8FF2E)",
+  },
+  {
+    id: "founding-artist",
+    mark: "100",
+    name: "Founding Artist",
+    maxRank: 100,
+    req: "Ranks 100 → 11",
+    minted: "100 ever",
+    body: "Comes with the Founding Artist pass and a seat at the table.",
+    accent: "coral",
+    rim: "linear-gradient(135deg, #FF5B3A, #FFB36B, #FF5B3A)",
+  },
+  {
+    id: "first-thousand",
+    mark: "1K",
+    name: "First Thousand",
+    maxRank: 1000,
+    req: "Ranks 1,000 → 101",
+    minted: "1,000 ever",
+    body: "The first thousand names on the board, frozen at launch.",
+    accent: "pink",
+    rim: "linear-gradient(135deg, #FF9EE6, #6FD3FF, #FF9EE6)",
+  },
+  {
+    id: "day-one",
+    mark: "D1",
+    name: "Day One",
+    maxRank: Infinity,
+    req: "Everyone who preregisters",
+    minted: "Unlimited · until launch",
+    body: "Proof you were here before the doors opened.",
+    accent: "sky",
+    rim: "linear-gradient(135deg, #6FD3FF, #7C5CFF, #6FD3FF)",
+  },
+] as const;
+
+export type Badge = (typeof BADGES)[number];
+
+/** Badge a given position currently qualifies for. */
+export function badgeFor(position: number): Badge {
+  return BADGES.find((b) => position <= b.maxRank) ?? BADGES[BADGES.length - 1];
+}
+
 export const CRAFTS = [
   "Painting",
   "Dance",
